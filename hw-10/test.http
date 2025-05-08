@@ -1,0 +1,43 @@
+### LOGIN (получить JWT токен)
+POST http://localhost:3010/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+###
+
+### ОБНОВИТЬ EMAIL
+PUT http://localhost:3010/update-email
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NjcxNDM1NSwiZXhwIjoxNzQ2NzE3OTU1fQ.X2W6LW1iCttVYWytb7ZZv4TgUSxEoR7pkMy-xDWkv68
+
+{
+  "email": "newemail@example.com"
+}
+
+###
+
+### УДАЛЕНИЕ АККАУНТА
+DELETE http://localhost:3010/delete-account
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NjcxNDM1NSwiZXhwIjoxNzQ2NzE3OTU1fQ.X2W6LW1iCttVYWytb7ZZv4TgUSxEoR7pkMy-xDWkv68
+
+###
+
+### ОБНОВЛЕНИЕ РОЛИ (только для админа)
+PUT http://localhost:3010/update-role
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NjcxNDM1NSwiZXhwIjoxNzQ2NzE3OTU1fQ.X2W6LW1iCttVYWytb7ZZv4TgUSxEoR7pkMy-xDWkv68
+
+{
+  "id": 2,
+  "role": "admin"
+}
+
+###
+
+### ОБНОВЛЕНИЕ JWT ТОКЕНА
+POST http://localhost:3010/refresh-token
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NjcxNDM1NSwiZXhwIjoxNzQ2NzE3OTU1fQ.X2W6LW1iCttVYWytb7ZZv4TgUSxEoR7pkMy-xDWkv68
