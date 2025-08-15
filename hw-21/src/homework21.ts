@@ -1,6 +1,4 @@
-// =======================
-// Задание 1
-// =======================
+// ===== Задание 1 =====
 abstract class Animal {
     abstract makeSound(): string;
 }
@@ -20,11 +18,7 @@ class Cat extends Animal {
 const animals: Animal[] = [new Dog(), new Cat()];
 animals.forEach(a => console.log(a.makeSound()));
 
-
-// =======================
-// Задание 2
-// =======================
-// Допустим, Shape из урока имела метод calculateArea()
+// ===== Задание 2 =====
 abstract class Shape {
     abstract calculateArea(): number;
 }
@@ -34,27 +28,17 @@ abstract class ColoredShape extends Shape {
 }
 
 class ColoredCircle extends ColoredShape {
-    radius: number;
-    color: string;
-    constructor(radius: number, color: string) {
+    constructor(public radius: number, public color: string) {
         super();
-        this.radius = radius;
-        this.color = color;
     }
     calculateArea(): number {
-        return Math.PI * this.radius * this.radius;
+        return Math.PI * this.radius ** 2;
     }
 }
 
 class ColoredRectangle extends ColoredShape {
-    width: number;
-    height: number;
-    color: string;
-    constructor(width: number, height: number, color: string) {
+    constructor(public width: number, public height: number, public color: string) {
         super();
-        this.width = width;
-        this.height = height;
-        this.color = color;
     }
     calculateArea(): number {
         return this.width * this.height;
@@ -65,15 +49,9 @@ const shapes: ColoredShape[] = [
     new ColoredCircle(5, "Red"),
     new ColoredRectangle(4, 6, "Blue")
 ];
+shapes.forEach(s => console.log(`Area: ${s.calculateArea()}, Color: ${s.color}`));
 
-shapes.forEach(s => {
-    console.log(`Area: ${s.calculateArea()}, Color: ${s.color}`);
-});
-
-
-// =======================
-// Задание 3
-// =======================
+// ===== Задание 3 =====
 abstract class Appliance {
     abstract turnOn(): void;
     abstract turnOff(): void;
@@ -103,24 +81,16 @@ appliances.forEach(a => {
     a.turnOff();
 });
 
-
-// =======================
-// Задание 4
-// =======================
+// ===== Задание 4 =====
 abstract class Account {
-    balance: number;
-    constructor(balance: number) {
-        this.balance = balance;
-    }
+    constructor(public balance: number) {}
     abstract deposit(amount: number): void;
     abstract withdraw(amount: number): void;
 }
 
 class SavingsAccount extends Account {
-    interestRate: number; // например, 5% = 0.05
-    constructor(balance: number, interestRate: number) {
+    constructor(balance: number, public interestRate: number) {
         super(balance);
-        this.interestRate = interestRate;
     }
     deposit(amount: number): void {
         this.balance += amount;
@@ -142,10 +112,8 @@ class SavingsAccount extends Account {
 }
 
 class CheckingAccount extends Account {
-    fee: number;
-    constructor(balance: number, fee: number) {
+    constructor(balance: number, public fee: number) {
         super(balance);
-        this.fee = fee;
     }
     deposit(amount: number): void {
         this.balance += amount;
@@ -171,25 +139,22 @@ const checking = new CheckingAccount(500, 5);
 checking.deposit(100);
 checking.withdraw(50);
 
-
-// =======================
-// Задание 5
-// =======================
+// ===== Задание 5 =====
 abstract class Media {
     abstract play(): void;
 }
 
-class Audio extends Media {
+class AudioMedia extends Media {
     play(): void {
         console.log("Playing audio");
     }
 }
 
-class Video extends Media {
+class VideoMedia extends Media {
     play(): void {
         console.log("Playing video");
     }
 }
 
-const mediaArray: Media[] = [new Audio(), new Video()];
+const mediaArray: Media[] = [new AudioMedia(), new VideoMedia()];
 mediaArray.forEach(m => m.play());
